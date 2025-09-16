@@ -4,12 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Shortner</title>
+    <title>URL Shortener</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <div class="container">
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <h1><i class="fas fa-link"></i> URL Shortener</h1>
+        <div class="input-group">
+            <div class="input-wrapper">
+                <input type="text" id="urlInput" placeholder="Enter URL to Shorten (e.g., https://example.com)">
+            </div>
+            <div class="btn-group">
+                <button class="btn" onclick="shortenURL()"><i class="fas fa-compress-alt"></i> Shorten URL</button>
+            </div>
+        </div>
+        <div id="result">
+            <div class="result-wrapper">
+                <input type="text" id="shortURL" readonly>
+            </div>
+            <div class="btn-group">
+                <button class="btn" onclick="copyToClipboard()"><i class="fas fa-copy"></i> Copy</button>
+            </div>
+        </div>
+        <div id="message"></div>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

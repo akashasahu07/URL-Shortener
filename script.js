@@ -49,3 +49,33 @@ function copyToClipboard() {
     document.execCommand('copy');
     alert('Short URL copied to clipboard!');
 }
+
+// Dark mode functionality
+function toggleTheme() {
+    const body = document.body;
+    const themeIcon = document.getElementById('theme-icon');
+    
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+        themeIcon.className = 'fas fa-sun';
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        themeIcon.className = 'fas fa-moon';
+        localStorage.setItem('darkMode', 'disabled');
+    }
+}
+
+// Load saved theme preference
+function loadTheme() {
+    const darkMode = localStorage.getItem('darkMode');
+    const themeIcon = document.getElementById('theme-icon');
+    
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+        themeIcon.className = 'fas fa-sun';
+    }
+}
+
+// Initialize theme on page load
+document.addEventListener('DOMContentLoaded', loadTheme);
