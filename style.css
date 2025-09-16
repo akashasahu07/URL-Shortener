@@ -109,10 +109,6 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
-.input-wrapper:focus-within::before {
-    opacity: 1;
-}
-
 .dark-mode .input-wrapper::before {
     background: linear-gradient(135deg, #818cf8, #c084fc);
 }
