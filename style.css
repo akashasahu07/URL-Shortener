@@ -278,7 +278,6 @@ h1 i {
     align-items: center;
     justify-content: center;
     font-size: clamp(16px, 3vw, 18px);
-    color: rgba(255, 255, 255, 0.8);
 }
 
 .dark-mode .theme-toggle {
