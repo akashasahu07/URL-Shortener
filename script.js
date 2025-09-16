@@ -42,10 +42,10 @@ function isValidURL(string) {
 
 function showMessage(text, type = 'success') {
     const messageDiv = document.getElementById('message');
-    messageDiv.textContent = text;
+    messageDiv.innerHTML = text;
     messageDiv.className = type;
     setTimeout(() => {
-        messageDiv.textContent = '';
+        messageDiv.innerHTML = '';
         messageDiv.className = '';
     }, 5000);
 }
@@ -221,8 +221,17 @@ document.addEventListener('keydown', function (event) {
     if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'D') {
         event.preventDefault();
         toggleTheme();
-        const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-        showMessage(`🌙 Switched to ${mode} mode`, 'success');
+
+        let mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+
+        // Capitalize first letter
+        mode = mode.charAt(0).toUpperCase() + mode.slice(1);
+
+        const icon = mode === 'Dark'
+            ? '<i class="fas fa-moon"></i>'
+            : '<i class="fas fa-sun"></i>';
+
+        showMessage(`${icon} Switched to ${mode} mode`, 'success');
     }
 });
 
